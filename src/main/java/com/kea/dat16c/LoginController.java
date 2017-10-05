@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-   private Data data = new Data();
+   public Data data = new Data();
 
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
@@ -19,11 +19,15 @@ public class LoginController {
    }
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
    public String login(@ModelAttribute  User user, Model model){
-      if(data.getUser(user)){
-         model.addAttribute("user", "now logged in as " + user.getUsername());
+      if(user != null){
+         if(data.getUser(user)){
+            model.addAttribute("user", "now logged in as " + user.getUsername());
+         }
+      }else{
+         model.addAttribute( "user", "Wrong login info, try again!");
       }
 
-      model.addAttribute( "user", "Wrong login info, try again!");
+
       return "login";
    }
 
@@ -33,7 +37,7 @@ public class LoginController {
       if(user != null){
          model.addAttribute("createUserText", "User now created, try and login");
       }else{
-         model.addAttribute("createUserText", "Username already taken");
+         model.addAttribute("createUserText", "Username already taken or something else went wrong");
       }
 
 

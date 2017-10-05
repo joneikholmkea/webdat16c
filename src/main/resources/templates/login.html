@@ -39,16 +39,16 @@
             <hr/>
             <h2>Login</h2>
             <form action="tryLogin" method="post" >
-                Username: <input type="text" placeholder="Username" width="30"/>
-                Password: <input type="password" placeholder="Password" width="30"/>
-                submit: <input type="submit">
+                Username: <input type="text" name="username"width="30"/>
+                Password: <input type="password" name="password" width="30"/>
+                submit: <input type="submit" value="login">
             </form>
             <p th:text="${user}"></p>
             <h2>Create user</h2>
             <form action="createUser" method="post" >
-                Username: <input type="text" placeholder="Username" width="30"/>
-                Password: <input type="password" placeholder="Password" width="30"/>
-                submit: <input type="submit">
+                Username: <input type="text"  name="username" width="30"/>
+                Password: <input type="password" name ="password" width="30"/>
+                submit: <input type="submit" value="create user">
             </form>
             <p th:text="${createUserText}"></p>
 
