@@ -26,4 +26,9 @@ public class User {
    public void setPassword(String password) {
       this.password = password;
    }
+
+   public String toString(){
+
+      return "username: " + username + " Pass: " + password;
+   }
 }

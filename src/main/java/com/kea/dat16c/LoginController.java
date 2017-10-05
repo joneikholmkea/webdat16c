@@ -11,22 +11,21 @@ public class LoginController {
    Data data = new Data();
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
-   public String loginPage(){
-
+   public String loginPage(Model model){
+      model.addAttribute("user", new User());
       return "login";
    }
-   @RequestMapping(value = {"tryLogin"})
+   @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
    public String login(@ModelAttribute  User user, Model model){
       if(data.getUser(user)){
-
+         model.addAttribute("user", "now logged in as " + user.getUsername() + " and password is: " + user.getPassword());
       }
 
-
-      model.addAttribute( "user", user);
+      model.addAttribute( "user", "Wrong login info, try again!");
       return "login";
    }
 
-   @RequestMapping(value = {"createUser"})
+   @RequestMapping(value = {"createUser"}, method = RequestMethod.POST)
    public String createUser(@ModelAttribute User user, Model model){
       data.createUser(user);
       model.addAttribute("createUserText", "User now created, try and login");
