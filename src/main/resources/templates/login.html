@@ -35,12 +35,24 @@
         </div>
 
         <div class="col-sm-9">
-            <h4><small>Example headline</small></h4>
+            <h4><small>Login or create user</small></h4>
             <hr/>
-            <h2>Why Coding?</h2>
+            <h2>Login</h2>
+            <form action="tryLogin" method="post" >
+                Username: <input type="text" placeholder="Username" width="30"/>
+                Password: <input type="password" placeholder="Password" width="30"/>
+            </form>
+            <p th:text=""></p>
             <h5><span class="glyphicon glyphicon-time"></span> Post by Jon Eikholm, Oct 4, 2017.</h5>
             <h5><span class="label label-danger">Ignorance</span> <span class="label label-primary">Programming</span></h5><br/>
             <p>The sheer joy of making things. Programming is fundamentally about creating solutions to problems. At the end of the day, you have created something that didn’t exist that morning, and that is in and of itself satisfying.</p>
+            <h2>Create user</h2>
+            <form action="createUser" method="post" >
+                Username: <input type="text" placeholder="Username" width="30"/>
+                Password: <input type="password" placeholder="Password" width="30"/>
+            </form>
+            <p th:text="${createUserText}"></p>
+
             <br/><br/>
 
         </div>
@@ -48,7 +60,7 @@
 </div>
 
 <footer class="container-fluid">
-    <p>&copyDat16C</p>
+    <p>Footer Text</p>
 </footer>
 
 </body>
