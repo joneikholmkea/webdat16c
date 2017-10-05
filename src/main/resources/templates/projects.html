@@ -36,7 +36,7 @@
 
         <div class="col-sm-9">
             <h5>Submit your project link here</h5><br>
-            <form method="post" action="login">
+            <form method="post" action="projects">
 
                   <input type="text" class="form-control" name="Project name" placeholder="Type project name" /><br>
                   <input type="text" class="form-control" name="Name" placeholder="First and last name" /><br>
@@ -44,6 +44,10 @@
                   <input type="text" class="form-control" name="Repository URL" placeholder="Type reepository URL" /><br>
                   <input type="submit" value="Submit project" />
 
+            </form>
+
+            <form th:each="links2 : ${links}">
+                <input type="text" th:value="${links2}"/>
             </form>
 
         </div>
