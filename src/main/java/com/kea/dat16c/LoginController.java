@@ -12,7 +12,8 @@ public class LoginController {
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
    public String loginPage(Model model){
-      model.addAttribute("user", new User());
+      model.addAttribute("user", new User("",""));
+      System.out.println("it works lol");
       return "login";
    }
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
