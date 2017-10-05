@@ -8,17 +8,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class LoginController {
-   Data data = new Data();
+   private Data data = new Data();
+
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
    public String loginPage(Model model){
       System.out.println("it works lol");
+      data.createConnection();
       return "login";
    }
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
    public String login(@ModelAttribute  User user, Model model){
       if(data.getUser(user)){
-         model.addAttribute("user", "now logged in as " + user.getUsername() + " and password is: " + user.getPassword());
+         model.addAttribute("user", "now logged in as " + user.getUsername());
       }
 
       model.addAttribute( "user", "Wrong login info, try again!");
@@ -28,7 +30,12 @@ public class LoginController {
    @RequestMapping(value = {"createUser"}, method = RequestMethod.POST)
    public String createUser(@ModelAttribute User user, Model model){
       data.createUser(user);
-      model.addAttribute("createUserText", "User now created, try and login");
+      if(user != null){
+         model.addAttribute("createUserText", "User now created, try and login");
+      }else{
+         model.addAttribute("createUserText", "Username already taken");
+      }
+
 
       return "login";
    }

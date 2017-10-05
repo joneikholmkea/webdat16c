@@ -17,6 +17,7 @@ public class Data {
       try {
          Class.forName(JDBC_DRIVER);
          connection = DriverManager.getConnection(DB_Url, sqlUsername, sqlPassword);
+         System.out.println(connection.toString());
       }catch(Exception ex){
          ex.printStackTrace();
       }
