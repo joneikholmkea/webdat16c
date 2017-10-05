@@ -9,6 +9,7 @@ public class ProjectLinks
     private String projectName;
     private String name;
     private String summary;
+    private String projectText;
 
 
     @Override
