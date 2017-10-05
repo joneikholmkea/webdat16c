@@ -12,7 +12,6 @@ public class LoginController {
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
    public String loginPage(){
-
       return "login";
    }
    @RequestMapping(value = {"tryLogin"})
