@@ -35,21 +35,41 @@
         </div>
 
         <div class="col-sm-9">
-            <h4><small>Example headline</small></h4>
+            <h4><small>If you want fun! Then we will give you fun!</small></h4>
             <hr/>
-            <h2>Why Coding?</h2>
-            <h5><span class="glyphicon glyphicon-time"></span> Post by Jon Eikholm, Oct 4, 2017.</h5>
+            <h2>Why Coding? because it's apperently fun... sometimes</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Post by Soeren og Magnus, Oct 5, 2017.</h5>
             <h5><span class="label label-danger">Ignorance</span> <span class="label label-primary">Programming</span></h5><br/>
-            <p>The sheer joy of making things. Programming is fundamentally about creating solutions to problems. At the end of the day, you have created something that didn’t exist that morning, and that is in and of itself satisfying.</p>
+            <form method="post">
+                <input type="text" name="link" placeholder="Your link goes here!" />
+                <input type="submit" value="Submit link" />
+            </form>
             <br/><br/>
-
         </div>
-    </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5">
+                    <iframe width="420" height="315"
+                            src="https://www.youtube.com/embed/y6Sxv-sUYtM">
+                    </iframe>
+                </div>
+                <div class="col-sm-4">
+                    <img src="https://i.pinimg.com/736x/4a/82/38/4a8238db60b0fa0b7562cca64c459691--software-development-funny-images.jpg" alt="https://www.pinterest.co.uk/sabinapopa507/programming-jokes/" style="width:420px;height:500px;">
+                </div>
+                <div class="col-sm-3">
+                    <p>Funny shit n stuff</p>
+                    <form th:each="link2: ${links}">
+                        <a th:href="${link2}" th:text="${link2}"/>
+                    </form>
+                </div>
+            </div>
+        </div>
 </div>
 
 <footer class="container-fluid">
     <p>Footer Text</p>
 </footer>
-
+</div>
 </body>
 </html>
