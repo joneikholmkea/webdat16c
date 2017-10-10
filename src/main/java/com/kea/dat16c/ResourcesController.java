@@ -14,21 +14,18 @@ public class ResourcesController {
 
     List<Resource> resourceList = new ArrayList<>();
 
-    @RequestMapping({"", "/", "resources"})
+    @RequestMapping({"resource"})
     public String resources(Model model){
         model.addAttribute("resource", "");
-        //System.out.println("ender");
+        System.out.println("ender");
         return "resources";
     }
-    @RequestMapping(value = {"resources"}, method = RequestMethod.POST)
+    @RequestMapping(value = {"resource"}, method = RequestMethod.POST)
     public String handleUpload(@ModelAttribute Resource resource, Model model){
         resourceList.add(resource);
-        model.addAttribute("resource", resourceList);
-        //System.out.println("benjamin");
+        model.addAttribute("resourceList", resourceList);
+        System.out.println("benjamin");
        System.out.println(resourceList.size());
         return "resources";
     }
-
-
-
 }

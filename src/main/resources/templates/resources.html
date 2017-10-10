@@ -35,16 +35,15 @@
         </div>
         <div class="col-sm-9">
             <h2>Resources page</h2>
-            <br method="post">
-                <input type="text" name="link" value="something"/>
-                <input type="text"  name="description" value="info about"/>
+            <form method="post">
+                <input type="text" name="link" value="http://www.dr.dk/"/>
+                <input type="text" name="description" value="nyheder">
                 <input type="submit" value="Upload"/>
             </form>
             <h3>Links, Documents & Videos</h3>
-            <form th:each="resources2 : ${resource}">
-                <a th:href="'http://'+${resources2+' '}" th:value="${resources2}"></a></br>
+            <form th:each="resources2 : ${resourceList}">
+                <a th:href="${resources2.link}" th:text="${resources2.description}"></a></br>
             </form>
-
         </div>
     </div>
 </div>

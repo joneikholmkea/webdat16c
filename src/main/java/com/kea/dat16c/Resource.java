@@ -2,8 +2,8 @@ package com.kea.dat16c;
 
 public class Resource {
 
-   public String link;
-   public String description;
+   private String link;
+   private String description;
 
    public Resource(){ }
 
@@ -28,7 +28,7 @@ public class Resource {
       this.description = description;
    }
    public String toString(){
-      return link + "  " + description;
+      return link + description;
       //
    }
 
