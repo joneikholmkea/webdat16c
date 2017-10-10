@@ -43,6 +43,8 @@ public class LoginController {
             session.setAttribute("isLoggedIn", user);
 
             return "index";
+         } else {
+            model.addAttribute( "user", "Wrong login info, try again!");
          }
       }else{
          model.addAttribute( "user", "Wrong login info, try again!");
