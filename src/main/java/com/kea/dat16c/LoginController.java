@@ -23,12 +23,12 @@ public class LoginController {
    public String login(@ModelAttribute  User user, Model model, HttpSession session){
       if(user != null){
          if(data.getUser(user)){
-            model.addAttribute("user", "now logged in as " + user.getUsername());
+            model.addAttribute("user", user.getUsername());
+            session.setAttribute("isLoggedIn", user);
          }
       }else{
          model.addAttribute( "user", "Wrong login info, try again!");
       }
-
 
       return "login";
    }
@@ -41,10 +41,9 @@ public class LoginController {
       }else{
          model.addAttribute("createUserText", "Username already taken or something else went wrong");
       }
-
-
       return "login";
    }
+
 
 
 }
