@@ -24,7 +24,6 @@ public class LoginController {
       if(user != null){
          if(data.getUser(user)){
             model.addAttribute("user", "now logged in as " + user.getUsername());
-            HttpSessionList.addToMap(session.getId(), user.getUsername());
          }
       }else{
          model.addAttribute( "user", "Wrong login info, try again!");
