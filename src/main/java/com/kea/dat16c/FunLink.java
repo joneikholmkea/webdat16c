@@ -1,20 +1,34 @@
 package com.kea.dat16c;
 
+import java.net.URL;
+
 /**
- * Created by soere on 05-10-2017.
+ * Created by thyge on 05-10-2017.
  */
 public class FunLink
 {
-    String link;
+    private String link;
+    private String desc;
 
-    public FunLink(String link)
+    public FunLink()
     {
-        this.link = link;
+
     }
 
-    public void setLink(String link)
+    public FunLink(String link, String desc)
     {
         this.link = link;
+        this.desc = desc;
+    }
+
+    public String getDesc()
+    {
+        return desc;
+    }
+
+    public void setDesc(String desc)
+    {
+        this.desc = desc;
     }
 
     public String getLink()
@@ -22,8 +36,13 @@ public class FunLink
         return link;
     }
 
+    public void setLink(String link)
+    {
+        this.link = link;
+    }
+
     public String toString()
     {
-        return link;
+        return link + desc;
     }
 }

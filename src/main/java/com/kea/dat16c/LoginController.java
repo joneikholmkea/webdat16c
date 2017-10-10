@@ -10,21 +10,39 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
+
+   private final int SESSION_TIMEOUT = 1800;
    public Data data = new Data();
 
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
-   public String loginPage(Model model){
-      System.out.println("database connected");
-      data.createConnection();
+   public String loginPage(Model model, HttpSession session){
+      User user = (User)session.getAttribute("isLoggedIn");
+      if(user != null){
+         model.addAttribute("user", user);
+      }else{
+         model.addAttribute("user", "Dat16c site");
+      }
       return "login";
    }
+
+   @RequestMapping(value = {"logout"})
+   public String logout(HttpSession session, Model model){
+      session.invalidate();
+      model.addAttribute("user", "Dat16c Site");
+
+      return "redirect:index";
+   }
+
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
    public String login(@ModelAttribute  User user, Model model, HttpSession session){
       if(user != null){
          if(data.getUser(user)){
+            session.setMaxInactiveInterval(SESSION_TIMEOUT);
             model.addAttribute("user", user.getUsername());
             session.setAttribute("isLoggedIn", user);
+
+            return "index";
          }
       }else{
          model.addAttribute( "user", "Wrong login info, try again!");

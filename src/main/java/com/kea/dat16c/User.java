@@ -29,6 +29,6 @@ public class User {
 
    public String toString(){
 
-      return "username: " + username + " Pass: " + password;
+      return username;
    }
 }

@@ -18,14 +18,10 @@ public class HomeController {
     public String index(Model model, HttpSession session){
         User user = (User)session.getAttribute("isLoggedIn");
         if(user != null){
-            model.addAttribute("user", user.getUsername());
+            model.addAttribute("user", user);
             return "index";
         }
         model.addAttribute("user", "Dat16c site");
         return "index";
     }
-
-
-
-
 }

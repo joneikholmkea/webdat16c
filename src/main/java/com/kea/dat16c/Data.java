@@ -13,6 +13,11 @@ public class Data {
    Connection connection;
    PreparedStatement preparedStatement;
 
+   public Data(){
+      if(connection == null){
+         createConnection();
+      }
+   }
    public synchronized void createConnection(){
       try {
          Class.forName(JDBC_DRIVER);

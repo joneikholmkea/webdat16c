@@ -11,7 +11,7 @@ import java.util.List;
 @Controller
 public class SearchController {
     
-    @RequestMapping({"", "/", "searchpage"})
+    @RequestMapping({"searchpage"})
     public String searchpage(@RequestParam String query, Model model) {
         model.addAttribute("user", "Dat16c site");
         model.addAttribute("list", sqlQuery(levenshtein(query)));
