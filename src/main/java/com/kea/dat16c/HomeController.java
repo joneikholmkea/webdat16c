@@ -16,8 +16,8 @@ public class HomeController {
 
     @RequestMapping({"", "/", "index"})
     public String index(Model model, HttpSession session){
-        if(session.getAttribute(session.getId()) != null){
-            User user = (User)session.getAttribute("isLoggedIn");
+        User user = (User)session.getAttribute("isLoggedIn");
+        if(user != null){
             model.addAttribute("user", user.getUsername());
             return "index";
         }
