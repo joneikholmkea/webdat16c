@@ -12,12 +12,10 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-
     @RequestMapping({"", "/", "index"})
     public String index(Model model){
         model.addAttribute("user", "Dat16c site");
         return "index";
     }
-
 
 }
