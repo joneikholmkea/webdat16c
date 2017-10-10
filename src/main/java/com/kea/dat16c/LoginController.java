@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
+
+   private final int SESSION_TIMEOUT = 1800;
    public Data data = new Data();
 
 
@@ -36,8 +38,11 @@ public class LoginController {
    public String login(@ModelAttribute  User user, Model model, HttpSession session){
       if(user != null){
          if(data.getUser(user)){
+            session.setMaxInactiveInterval(SESSION_TIMEOUT);
             model.addAttribute("user", user.getUsername());
             session.setAttribute("isLoggedIn", user);
+
+            return "index";
          }
       }else{
          model.addAttribute( "user", "Wrong login info, try again!");
