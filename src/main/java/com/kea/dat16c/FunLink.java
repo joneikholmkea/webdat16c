@@ -7,16 +7,28 @@ import java.net.URL;
  */
 public class FunLink
 {
-    String link;
+    private String link;
+    private String desc;
 
     public FunLink()
     {
 
     }
 
-    public FunLink(String link)
+    public FunLink(String link, String desc)
     {
         this.link = link;
+        this.desc = desc;
+    }
+
+    public String getDesc()
+    {
+        return desc;
+    }
+
+    public void setDesc(String desc)
+    {
+        this.desc = desc;
     }
 
     public String getLink()
@@ -31,6 +43,6 @@ public class FunLink
 
     public String toString()
     {
-        return link;
+        return link + desc;
     }
 }
