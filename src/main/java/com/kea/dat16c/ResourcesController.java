@@ -17,14 +17,14 @@ public class ResourcesController {
     @RequestMapping({"", "/", "resources"})
     public String resources(Model model){
         model.addAttribute("resource", "");
-        System.out.println("ender");
+        //System.out.println("ender");
         return "resources";
     }
     @RequestMapping(value = {"resources"}, method = RequestMethod.POST)
     public String handleUpload(@ModelAttribute Resource resource, Model model){
         resourceList.add(resource);
         model.addAttribute("resource", resourceList);
-        System.out.println("benjamin");
+        //System.out.println("benjamin");
        System.out.println(resourceList.size());
         return "resources";
     }
