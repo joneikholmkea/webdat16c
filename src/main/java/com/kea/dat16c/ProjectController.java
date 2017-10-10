@@ -20,10 +20,10 @@ public class ProjectController
             User user = (User)session.getAttribute("isLoggedIn");
             if(user != null){
                 model.addAttribute("user", user.getUsername());
-                return "index";
+                return "projects";
             }
             model.addAttribute("user", "Dat16c site");
-            return "projects";
+            return "index";
         }
 
     @RequestMapping(value = {"projects"}, method = RequestMethod.POST)
