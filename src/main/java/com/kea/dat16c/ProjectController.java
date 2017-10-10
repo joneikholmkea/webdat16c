@@ -15,7 +15,7 @@ public class ProjectController
 {
     List<ProjectLinks> links = new ArrayList<>();
 
-        @RequestMapping({"", "/", "projects"})
+        @RequestMapping({"projects"})
         public String index(Model model, HttpSession session){
             User user = (User)session.getAttribute("isLoggedIn");
             if(user != null){

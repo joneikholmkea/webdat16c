@@ -14,13 +14,20 @@ public class LoginController {
 
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
-   public String loginPage(Model model){
+   public String loginPage(Model model, HttpSession session){
+      User user = (User)session.getAttribute("isLoggedIn");
+      if(user != null){
+         model.addAttribute("user", user);
+      }else{
+         model.addAttribute("user", "Dat16c site");
+      }
       return "login";
    }
 
    @RequestMapping(value = {"logout"})
-   public String logout(HttpSession session){
+   public String logout(HttpSession session, Model model){
       session.invalidate();
+      model.addAttribute("user", "Dat16c Site");
 
       return "redirect:index";
    }
