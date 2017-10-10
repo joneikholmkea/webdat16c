@@ -14,7 +14,9 @@ public class Data {
    PreparedStatement preparedStatement;
 
    public Data(){
-      createConnection();
+      if(connection == null){
+         createConnection();
+      }
    }
    public synchronized void createConnection(){
       try {

@@ -24,8 +24,4 @@ public class HomeController {
         model.addAttribute("user", "Dat16c site");
         return "index";
     }
-
-
-
-
 }
