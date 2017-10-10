@@ -35,14 +35,30 @@
         </div>
 
         <div class="col-sm-9">
-            <h4><small>Example headline</small></h4>
+            <h4><small>if you want fun! we will give you fun!</small></h4>
             <hr/>
-            <h2>Why Coding?</h2>
-            <h5><span class="glyphicon glyphicon-time"></span> Post by Jon Eikholm, Oct 4, 2017.</h5>
-            <h5><span class="label label-danger">Ignorance</span> <span class="label label-primary">Programming</span></h5><br/>
-            <p>The sheer joy of making things. Programming is fundamentally about creating solutions to problems. At the end of the day, you have created something that didn’t exist that morning, and that is in and of itself satisfying.</p>
+            <h2>Why Coding? (because it's apparently fun..sometimes)</h2>
+            <h5><span class="glyphicon glyphicon-time"></span> Post by Dank masters, Oct 69, 2420.</h5>
+            <h5><span class="label label-danger">Memes</span> <span class="label label-primary">also programming</span></h5><br/>
+            <p>Jokes....I don't know any jokes. I know memes and phraces that make people question my sanity</p>
+            <form method="post">
+                <input type="text" name="Link" placeholder="Your funLink goes here"/>
+                <input type="submit" value="Submit funLink">
+            </form>
             <br/><br/>
 
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5"><iframe width="420" height="315" src="https://www.youtube.com/embed/NsKaCS3CtsY"></iframe></div>
+                <div class="col-sm-4"><img src="https://i.pinimg.com/originals/f2/2d/13/f22d139ab25b3f5935c231189947e24d.jpg" style="width:420px;height:200px;"></div>
+                <div class="col-sm-3">
+                    <form th:each="funLink: ${links}">
+                        <a th:href="${funLink}" th:text="${funLink}"/>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
