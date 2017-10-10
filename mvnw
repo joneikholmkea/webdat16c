@@ -73,17 +73,17 @@ if [ -z "$JAVA_HOME" ] ; then
 fi
 
 if [ -z "$M2_HOME" ] ; then
-  ## resolve links - $0 may be a link to maven's home
+  ## resolve links - $0 may be a funLink to maven's home
   PRG="$0"
 
   # need this for relative symlinks
   while [ -h "$PRG" ] ; do
     ls=`ls -ld "$PRG"`
-    link=`expr "$ls" : '.*-> \(.*\)$'`
-    if expr "$link" : '/.*' > /dev/null; then
-      PRG="$link"
+    funLink=`expr "$ls" : '.*-> \(.*\)$'`
+    if expr "$funLink" : '/.*' > /dev/null; then
+      PRG="$funLink"
     else
-      PRG="`dirname "$PRG"`/$link"
+      PRG="`dirname "$PRG"`/$funLink"
     fi
   done
 
