@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <input type="text" name="link" placeholder="Your link goes here!" />
-                            <textarea name="string" rows="4" cols="50", placeholder="Description here!"></textarea>
+                            <textarea name="desc" rows="4" cols="50", placeholder="Description here!"></textarea>
                             <input type="submit" value="Submit link" />
                         </div>
                     </div>
@@ -67,8 +67,8 @@
                 </div>
                 <div class="col-sm-3">
                     <p>Funny shit n stuff</p>
-                    <form th:each="link2: ${links}">
-                        <a th:href="${link2}" th:text="${link2}"/>
+                    <form th:each="link: ${links}">
+                        <a th:href="${link.link}" th th:text="${link.desc}"/>
                     </form>
                 </div>
             </div>

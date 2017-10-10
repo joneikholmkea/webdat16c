@@ -31,13 +31,13 @@ public class FunController
 
 
     @RequestMapping(value = {"fun"}, method = RequestMethod.POST)
-    public String handleSubmit(@ModelAttribute FunLink link, String string, Model model)
+    public String handleSubmit(@ModelAttribute FunLink link, Model model)
     {
         links.add(link);
-        desc.add(string);
+       // desc.add(string);
         model.addAttribute("links", links);
         System.out.println(links);
-        System.out.println(desc);
+      //  System.out.println(desc);
         return "fun";
     }
 
