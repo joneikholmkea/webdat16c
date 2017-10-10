@@ -44,10 +44,9 @@ public class LoginController {
 
             return "index";
          }
-      }else{
-         model.addAttribute( "user", "Wrong login info, try again!");
       }
 
+      model.addAttribute( "user", "Wrong login info, try again!");
       return "login";
    }
 
