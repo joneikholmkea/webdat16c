@@ -18,6 +18,13 @@ public class LoginController {
       return "login";
    }
 
+   @RequestMapping(value = {"logout"})
+   public String logout(HttpSession session){
+      session.invalidate();
+
+      return "redirect:index";
+   }
+
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
    public String login(@ModelAttribute  User user, Model model, HttpSession session){
       if(user != null){
