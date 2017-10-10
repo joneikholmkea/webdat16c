@@ -13,7 +13,7 @@ public class Data {
    Connection connection;
    PreparedStatement preparedStatement;
 
-   public void createConnection(){
+   public synchronized void createConnection(){
       try {
          Class.forName(JDBC_DRIVER);
          connection = DriverManager.getConnection(DB_Url, sqlUsername, sqlPassword);
@@ -23,7 +23,7 @@ public class Data {
       }
    }
 
-   public boolean getUser(User user){
+   public synchronized boolean getUser(User user){
       String SQL = "SELECT * FROM users WHERE username = ? AND password = ?";
       try {
          preparedStatement = connection.prepareStatement(SQL);
@@ -41,7 +41,7 @@ public class Data {
 
       return false;
    }
-   public void createUser(User user){
+   public synchronized void createUser(User user){
       String SQL = "INSERT INTO users(username, password) VALUES (?, ?) ";
       try {
          preparedStatement = connection.prepareStatement(SQL);

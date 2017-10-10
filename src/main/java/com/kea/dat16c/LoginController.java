@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
    public Data data = new Data();
@@ -13,15 +15,16 @@ public class LoginController {
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
    public String loginPage(Model model){
-      System.out.println("it works lol");
+      System.out.println("database connected");
       data.createConnection();
       return "login";
    }
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
-   public String login(@ModelAttribute  User user, Model model){
+   public String login(@ModelAttribute  User user, Model model, HttpSession session){
       if(user != null){
          if(data.getUser(user)){
             model.addAttribute("user", "now logged in as " + user.getUsername());
+            HttpSessionList.addToMap(session.getId(), user.getUsername());
          }
       }else{
          model.addAttribute( "user", "Wrong login info, try again!");
@@ -43,4 +46,6 @@ public class LoginController {
 
       return "login";
    }
+
+
 }
