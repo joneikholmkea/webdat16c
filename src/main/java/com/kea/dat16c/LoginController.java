@@ -41,7 +41,7 @@ public class LoginController {
             session.setMaxInactiveInterval(SESSION_TIMEOUT);
             model.addAttribute("user", user.getUsername());
             session.setAttribute("isLoggedIn", user);
-
+            //
             return "index";
          }
       }else{
