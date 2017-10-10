@@ -6,23 +6,27 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class FunController
+{
+    List<FunLink> links = new ArrayList<>();
 
-
-    @RequestMapping({"", "/", "index"})
-    public String index(Model model, HttpSession session){
-        User user = (User)session.getAttribute("isLoggedIn");
-        if(user != null){
-            model.addAttribute("user", user.getUsername());
-            return "index";
-        }
+    @RequestMapping({"fun"})
+    public String fun(Model model){
         model.addAttribute("user", "Dat16c site");
-        return "index";
+        return "fun";
+    }
+
+
+    @RequestMapping(value = {"fun"}, method = RequestMethod.POST)
+    public String handleSubmit(@ModelAttribute FunLink link, Model model)
+    {
+        links.add(link);
+        model.addAttribute("links", links);
+        return "fun";
     }
 
 
