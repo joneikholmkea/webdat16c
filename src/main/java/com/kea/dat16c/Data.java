@@ -13,6 +13,9 @@ public class Data {
    Connection connection;
    PreparedStatement preparedStatement;
 
+   public Data(){
+      createConnection();
+   }
    public synchronized void createConnection(){
       try {
          Class.forName(JDBC_DRIVER);

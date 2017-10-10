@@ -15,10 +15,9 @@ public class LoginController {
 
    @RequestMapping(value = {"login"}, method = RequestMethod.GET)
    public String loginPage(Model model){
-      System.out.println("database connected");
-      data.createConnection();
       return "login";
    }
+
    @RequestMapping(value = {"tryLogin"}, method = RequestMethod.POST)
    public String login(@ModelAttribute  User user, Model model, HttpSession session){
       if(user != null){
